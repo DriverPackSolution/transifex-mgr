@@ -1,4 +1,4 @@
-import Transifex from './Transifex'
+import Transifex from './lib/Transifex'
 
 function getConfig () {
   return require('./config.json')
