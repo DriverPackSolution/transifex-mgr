@@ -1,4 +1,5 @@
 import Transifex from './lib/Transifex'
+import DumpCommand from './lib/DumpCommand'
 
 function getConfig () {
   return require('./config.json')
@@ -12,15 +13,11 @@ async function main (argument) {
     resource_slug: 'driverpack-solution',
     ...config.transifex
   })
-  console.log('reading');
-  const res = await transifex.downloadResource()
-  console.log(res.body.content)
+  const cmd = new DumpCommand({transifex})
+  await cmd.run()
 }
-
-let f = () => console.log('3334');
-f()
 
 main().then(
   () => {console.log('done')},
-  (err) => {console.log('err', err.stack)}
+  (err) => {console.error('main:', err.stack); process.exit(1)}
 )
