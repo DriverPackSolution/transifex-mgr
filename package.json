@@ -8,6 +8,7 @@
   },
   "devDependencies": {
     "babel": "5.8.23",
+    "mkdirp": "0.5.1",
     "nodemon": "1.4.1"
   },
   "dependencies": {
